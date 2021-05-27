@@ -2,9 +2,10 @@ import os
 import sys
 from torchvision.utils import save_image
 from torchvision.transforms import ToPILImage
+import torch
 
 
-def save_tensor(path, img_tens):
+def save_tensor(img_tens, path):
     save_image(img_tens, path)
 
 
@@ -23,10 +24,10 @@ def check_ex(path, create=False):
             sys.exit()
 
 def tens2pils(tens_list):
-    tens2pil = ToPILImage()
+    tens2pil = ToPILImage(mode='RGB')
 
     for idx in range(len(tens_list)):
-        tens_list[idx] = tens2pil(tens_list[idx][:3])
+        tens_list[idx] = tens2pil(torch.clamp(tens_list[idx][:3], 0, 1) )
 
     return tens_list
 
