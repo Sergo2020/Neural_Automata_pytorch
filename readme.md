@@ -11,6 +11,8 @@ therefore it is intended for use with python IDE.
 By default training procedure will start and will be followed up by test. Expected output is a grid of 
 images produced by the Automata.
 
+For testing, just run test function with default path. There is pre trained model and parameters.
+
 <h3>References</h3>
 
 [[1]](https://distill.pub/2020/growing-ca/) Mordvintsev, et al., "Growing Neural Cellular Automata", Distill, 2020.  
