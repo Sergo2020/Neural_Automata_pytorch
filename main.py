@@ -78,5 +78,5 @@ if __name__ == "__main__":
              'Learning rate': 1e-3, 'Learning gamma': 0.9999, 'Fire rate': 0.5,
              'Hidden dim.': 128, 'Min. Steps': 64, 'Max. Steps': 96}
 
-    #train_model(dest_path, check_path, hyper)
+    train_model(dest_path, check_path, hyper)
     test_model(method_load_path, 'test_60', dest_path, steps=hyper['Max. Steps'])

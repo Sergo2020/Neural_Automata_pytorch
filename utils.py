@@ -26,7 +26,7 @@ def tens2pils(tens_list):
     tens2pil = ToPILImage()
 
     for idx in range(len(tens_list)):
-        tens_list[idx] = tens2pil(tens_list[idx][:4])
+        tens_list[idx] = tens2pil(tens_list[idx][:3])
 
     return tens_list
 
