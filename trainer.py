@@ -58,6 +58,7 @@ class Trainer(nn.Module):
                 pool_set.pool[idx] = out.detach().cpu()
 
             loss.backward()
+            nn.utils.clip_grad_norm_(self.CA.parameters(), max_norm=1.0, norm_type=2)
             self.optimizer.step()
 
             t_loss += loss
