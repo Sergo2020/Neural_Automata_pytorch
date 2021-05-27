@@ -1,6 +1,6 @@
 <h2>Growing Neural Cellular Automata</h2>
 
-Reconstruction of [1] in pytorch with CNN, as suggested by the author in [2].
+Reconstruction of [1] in pytorch with CNN model, as suggested by the author in [2].
 Model is capable of growing and preserving state.
 
 <h3>Train and test</h3>
