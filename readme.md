@@ -8,10 +8,9 @@ Model is capable of growing and preserving state.
 Clone repository and run [main.py](https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/main.py). Hyper parameters are pre-set in the same file in "hyper" dictionary,
 therefore it is intended for use with python IDE. 
 
-By default training procedure will start and will be followed up by test. Expected output is a grid of 
-images produced by the Automata.
+By default training procedure will start followed up by test.
 
-For testing, just run test function with default path. The output of the test procedure is a *.gif file with animated growth.
+For testing pre-trained model, just run test function with default settings. The output of the test procedure is a *.gif file with animated growth as sequences below:
 
 <p align="center">
 <img width="64" height="64" src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/output_gif.gif">
