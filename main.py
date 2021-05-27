@@ -57,7 +57,7 @@ def test_model(method_path, prefix, res_dir, new_img_path = None, steps=32):
     method.load_method(method_path, prefix)
 
     res = method.simulate_cells(seeds_pool.seed, steps)
-    save_tensor(res_dir / f'sim_steps{steps}_test.png', res[:, :4])
+    save_gif(res, dest_path / f'{prefix}_gif.gif')
 
 
 if __name__ == "__main__":
@@ -78,5 +78,5 @@ if __name__ == "__main__":
              'Learning rate': 1e-3, 'Learning gamma': 0.9999, 'Fire rate': 0.5,
              'Hidden dim.': 128, 'Min. Steps': 64, 'Max. Steps': 96}
 
-    train_model(dest_path, check_path, hyper)
+    #train_model(dest_path, check_path, hyper)
     test_model(method_load_path, 'test_60', dest_path, steps=hyper['Max. Steps'])

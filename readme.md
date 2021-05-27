@@ -11,7 +11,9 @@ therefore it is intended for use with python IDE.
 By default training procedure will start and will be followed up by test. Expected output is a grid of 
 images produced by the Automata.
 
-For testing, just run test function with default path. There is pre trained model and parameters.
+For testing, just run test function with default path. The output of the test procedure is a *.gif file with animated growth.
+
+![](https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/output_gif.gif)
 
 <h3>References</h3>
 

@@ -74,9 +74,9 @@ class Trainer(nn.Module):
             out = seed.clone()
             for s in range(steps):
                 out = self.CA.propogate(out)  # , None, angle)
-                res_list.append(out.cpu())
+                res_list.append(out.squeeze(0).cpu())
 
-        return torch.stack(res_list).squeeze(1)
+        return res_list
 
     def save_method(self, path, prefix):
         torch.save(self.CA.state_dict(), path / f'{prefix}_model.pt')
