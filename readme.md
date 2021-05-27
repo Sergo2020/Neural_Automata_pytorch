@@ -13,8 +13,9 @@ images produced by the Automata.
 
 For testing, just run test function with default path. The output of the test procedure is a *.gif file with animated growth.
 
+<p align="center">
 ![](https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/output_gif.gif)
-
+</p>
 <h3>References</h3>
 
 [[1]](https://distill.pub/2020/growing-ca/) Mordvintsev, et al., "Growing Neural Cellular Automata", Distill, 2020.  
