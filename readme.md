@@ -4,7 +4,7 @@ Reconstruction of [1] in pytorch with CNN, as suggested by the author in [2].
 Model is capable of growing and preserving state.
 
 <h3>Train and test</h3>
-Clone repository and run ["main.py"](https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/main.py). Hyper parameters are pre-set in the same file in "hyper" dictionary,
+Clone repository and run [main.py](https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/main.py). Hyper parameters are pre-set in the same file in "hyper" dictionary,
 therefore it is intended for use with python IDE. 
 
 By default training procedure will start and will be followed up by test. Expected output is a grid of 
