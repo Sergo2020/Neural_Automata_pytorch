@@ -13,19 +13,10 @@ By default training procedure will start followed up by test.
 For testing pre-trained model, just run test function with default settings. The output of the test procedure is a *.gif file with animated growth as sequences below:
 
 <p align="center">
-<div class="row">
-  <div class="column">
-    <img src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/ra2_alpha_60_gif.gif" alt="Red Alert 2" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/xcom_fix_60_gif.gif" alt="X-COM" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/mario_alpha_60_gif.gif" alt="Mario" style="width:100%">
-  </div>
-</div>
+  <img src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/ra2_alpha_60_gif.gif" width="100" alt="Red Alert 2" />
+  <img src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/xcom_fix_60_gif.gif" width="100"  alt="X-COM" />
+  <img src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/mario_alpha_60_gif.gif" width="100"  alt="Mario Bros." />
 </p>
-
 
 <h3>References</h3>
 
