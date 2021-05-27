@@ -32,7 +32,7 @@ def tens2pils(tens_list):
 
 def save_gif(tensor_list, path):
     pil_list = tens2pils(tensor_list)
-    pil_list[0].save(path, save_all=True, append_images=pil_list[1:])
+    pil_list[0].save(path, save_all=True, append_images=pil_list[1:], loop = 0)
 
 
 
