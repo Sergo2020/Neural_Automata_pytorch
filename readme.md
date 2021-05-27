@@ -15,13 +15,13 @@ For testing pre-trained model, just run test function with default settings. The
 <p align="center">
 <div class="row">
   <div class="column">
-    <img src="results\r" alt="Red Alert 2" style="width:100%">
+    <img src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/ra2_alpha_60_gif.gif" alt="Red Alert 2" style="width:100%">
   </div>
   <div class="column">
-    <img src="img_forest.jpg" alt="X-COM" style="width:100%">
+    <img src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/xcom_fix_60_gif.gif" alt="X-COM" style="width:100%">
   </div>
   <div class="column">
-    <img src="img_mountains.jpg" alt="Mario" style="width:100%">
+    <img src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/mario_alpha_60_gif.gif" alt="Mario" style="width:100%">
   </div>
 </div>
 </p>
