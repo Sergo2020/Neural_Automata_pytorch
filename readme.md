@@ -13,8 +13,20 @@ By default training procedure will start followed up by test.
 For testing pre-trained model, just run test function with default settings. The output of the test procedure is a *.gif file with animated growth as sequences below:
 
 <p align="center">
-<img width="64" height="64" src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/output_gif.gif">
+<div class="row">
+  <div class="column">
+    <img src="results\r" alt="Red Alert 2" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="img_forest.jpg" alt="X-COM" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="img_mountains.jpg" alt="Mario" style="width:100%">
+  </div>
+</div>
 </p>
+
+
 <h3>References</h3>
 
 [[1]](https://distill.pub/2020/growing-ca/) Mordvintsev, et al., "Growing Neural Cellular Automata", Distill, 2020.  
