@@ -38,7 +38,8 @@ class Single_image(Dataset):
 
         return img_pil
 
-    def prep_img(self, img_pil, pad):
+    @staticmethod
+    def prep_img(img_pil, pad):
         if pad > 0:
             normilizer = transforms.Compose([transforms.Pad(pad),
                                              transforms.ToTensor()])
