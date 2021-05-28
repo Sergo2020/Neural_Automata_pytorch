@@ -1,6 +1,6 @@
 <h2>Growing Neural Cellular Automata</h2>
 
->Imagine if we could design systems of the same plasticity and robustness as biological life:
+> Imagine if we could design systems of the same plasticity and robustness as biological life:
 > structures and machines that could grow and repair themselves. 
 > Such technology would transform the current efforts in regenerative medicine, 
 > where scientists and clinicians seek to discover the inputs or stimuli that could cause cells in the body to build structures on demand as needed. 
