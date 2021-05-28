@@ -10,14 +10,16 @@
 Reconstruction of Growing Neural Cellular Automata[1] in pytorch with CNN model, as suggested by the author [2].
 Model is capable of growing and preserving state.
 
-<h3>Train and test</h3>
+<h3>Instructions</h3>
 
-Clone repository and run [main.py](https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/main.py). Hyper parameters are pre-set in the same file in "hyper" dictionary,
-therefore it is intended for use with python IDE. 
+Clone, check that enviroment meets the [requirements](https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/requirements.txt) and run one of the following:
+<ol>
+<li>train.py - Train routine (argpars)</li>
+<li>test.py - Test routine (argpars)</li>
+<li>main.py - Both routines (IDE)</li>
+</ol>
 
-By default training procedure will start followed up by test.
-
-For testing pre-trained model, just run test function with default settings. The output of the test procedure is a *.gif file with animated growth as sequences below:
+Defauls values will activate routines for "pika.png". The output of the test procedure is a *.gif file with animated growth as sequences below:
 
 <p align="center">
   <img src="https://github.com/Sergo2020/Neural_Automata_pytorch/blob/master/results/ra2_alpha_60_gif.gif" width="100" alt="Red Alert 2" />
