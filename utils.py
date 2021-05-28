@@ -5,10 +5,6 @@ from torchvision.transforms import ToPILImage
 import torch
 
 
-def save_tensor(img_tens, path):
-    save_image(img_tens, path)
-
-
 def get_curr_path():
     return os.getcwd()
 
