@@ -9,7 +9,6 @@ from utils import *
 
 
 def train_model(dest_dir, save_dir, hyper, load_path=None):
-
     check_ex(dest_dir, True)
     check_ex(save_dir, True)
 
@@ -37,12 +36,12 @@ def train_model(dest_dir, save_dir, hyper, load_path=None):
         pbar.postfix = f'Loss {method.train_loss[-1]:.4f}'
 
         if (ep % factor) == 0:
-            save_tensor(dest_dir / f'test_{ep}.png', test[:, :4])
+            save_image(dest_dir / f'test_{ep}.png', test[:, :4])
             method.save_method(save_dir, f'test_{ep}')
             method.plot_loss()
 
-def test_model(method_path, prefix, res_dir, new_img_path = None, steps=32):
 
+def test_model(method_path, prefix, res_dir, new_img_path=None, steps=32):
     check_ex(method_path)
     check_ex(res_dir, True)
 
@@ -50,7 +49,7 @@ def test_model(method_path, prefix, res_dir, new_img_path = None, steps=32):
 
     if new_img_path:
         check_ex(new_img_path)
-        hyper = new_img_path
+        hyper['Image path'] = new_img_path
 
     seeds_pool = data.Single_image(hyper)
     method = trainer.Trainer(hyper)
@@ -66,7 +65,6 @@ if __name__ == "__main__":
     check_path = Path(get_curr_path() + r"\check_points")
 
     method_load_path = Path(check_path, )
-    data_load_path = Path(check_path / r"pika_data.pt")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -78,5 +76,7 @@ if __name__ == "__main__":
              'Learning rate': 1e-3, 'Learning gamma': 0.9999, 'Fire rate': 0.5,
              'Hidden dim.': 128, 'Min. Steps': 64, 'Max. Steps': 96}
 
-    train_model(dest_path, check_path, hyper)
-    test_model(method_load_path, 'test_60', dest_path, steps=hyper['Max. Steps'])
+    # train_model(dest_path, check_path, hyper)
+    test_model(method_load_path, 'test_60', dest_path,
+               new_img_path=img_path,
+               steps=hyper['Max. Steps'])
