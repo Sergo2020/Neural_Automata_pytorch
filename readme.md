@@ -1,6 +1,8 @@
 <h2>Growing Neural Cellular Automata</h2>
 
-Reconstruction of [1] in pytorch with CNN model, as suggested by the author in [2].
+>Imagine if we could design systems of the same plasticity and robustness as biological life: structures and machines that could grow and repair themselves. Such technology would transform the current efforts in regenerative medicine, where scientists and clinicians seek to discover the inputs or stimuli that could cause cells in the body to build structures on demand as needed. To help crack the puzzle of the morphogenetic code, and also exploit the insights of biology to create self-repairing systems in real life, we try to replicate some of the desired properties in an in silico experiment.
+
+Reconstruction of Growing Neural Cellular Automata[1] in pytorch with CNN model, as suggested by the author [2].
 Model is capable of growing and preserving state.
 
 <h3>Train and test</h3>
