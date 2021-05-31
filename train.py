@@ -36,7 +36,7 @@ def train_model(dest_dir, save_dir, hyper, load_path=None):
         pbar.postfix = f'Loss {method.train_loss[-1]:.4f}'
 
         if (ep % factor) == 0:
-            # save_image(dest_dir / f'test_{ep}.png', test[:, :4])
+            save_image(dest_dir / f'test_{ep}.png', test[:, :4])
             method.save_method(save_dir, f'test_{ep}')
             method.plot_loss()
 
