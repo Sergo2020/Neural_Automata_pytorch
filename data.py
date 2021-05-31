@@ -5,8 +5,8 @@ from torchvision import transforms
 
 
 class Single_image(Dataset):
-    def __init__(self, hyper):
-        self.img_path = hyper['Image path']
+    def __init__(self, img_path, hyper):
+        self.img_path = img_path
         self.channel_n = hyper['Channels']
         self.padding = hyper['Target padding']
         self.pool_size = hyper['Pool size']

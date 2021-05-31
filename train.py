@@ -12,12 +12,12 @@ import trainer
 from utils import check_ex
 
 
-def train_model(dest_dir, save_dir, hyper, load_path=None):
+def train_model(img_path, dest_dir, save_dir, hyper, load_path=None):
     check_ex(dest_dir, create=True)
     check_ex(save_dir, create=True)
 
     if load_path is None:
-        pool_set = data.Single_image(hyper)
+        pool_set = data.Single_image(img_path, hyper)
         pickle.dump(hyper, open((save_dir / 'train_hypers.pt'), 'wb'))
         method = trainer.Trainer(hyper)
         init_e = 0
@@ -47,9 +47,9 @@ def train_model(dest_dir, save_dir, hyper, load_path=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("-i", "--im_path", default=Path.cwd() / 'images' / 'pika.png', required=False)
-    parser.add_argument("-d", "--dest_path", default=Path.cwd() / 'results', required=False)
-    parser.add_argument("-c", "--check_path", default=Path.cwd() / 'check_points', required=False)
+    parser.add_argument("-i", "--im_path", default=Path('images') / 'pika.png', required=False)
+    parser.add_argument("-d", "--dest_path", default=Path('results'), required=False)
+    parser.add_argument("-c", "--check_path", default=Path('check_points'), required=False)
     parser.add_argument("-b", "--batch_size", type=int, default=8, required=False)
     parser.add_argument("-e", "--epochs", type=int, default=60, required=False)
     parser.add_argument("-ch", "--channels", type=int, default=16, required=False)
@@ -65,13 +65,12 @@ if __name__ == "__main__":
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    hyper = {'Image path': Path(args.im_path),
-             'Batch Size': args.batch_size, 'Epochs': args.epochs, 'Device': device,
+    hyper = {'Batch Size': args.batch_size, 'Epochs': args.epochs, 'Device': device,
              'Channels': args.channels, 'Image size': args.image_size, 'Target padding': args.padd,
              'Random Seed': 0, 'Perceive': True, 'Update pool': True,
              'Pool size': args.pool_size,
              'Learning rate': args.learning_rate, 'Learning gamma': 0.9999, 'Fire rate': 0.5,
              'Hidden dim.': args.hidden_dim, 'Min. Steps': args.min_steps, 'Max. Steps': args.max_steps}
 
-    train_model(Path(args.dest_path), Path(args.check_path), hyper)
+    train_model(Path(args.im_path), Path(args.dest_path), Path(args.check_path), hyper)
 
