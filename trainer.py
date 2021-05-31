@@ -83,7 +83,7 @@ class Trainer(nn.Module):
         torch.save(self.scheduler.state_dict(), path / f'{prefix}_sched.pt')
 
     def load_method(self, path, prefix):
-        self.CA.load_state_dict(torch.load(path / f'{prefix}_model.pt'))
+        self.CA.load_state_dict(torch.load(path / f'{prefix}_model.pt'), strict=True)
         self.optimizer.load_state_dict(torch.load(path / f'{prefix}_opti.pt'))
         self.scheduler.load_state_dict(torch.load(path / f'{prefix}_sched.pt'))
 

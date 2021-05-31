@@ -1,21 +1,24 @@
+import pickle
 from pathlib import Path
 
 import argparse
+
+import torch
+from torchvision.utils import save_image
 from tqdm import tqdm
 
 import data
 import trainer
-from utils import *
+from utils import check_ex
 
 
 def train_model(dest_dir, save_dir, hyper, load_path=None):
-    check_ex(dest_dir, True)
-    check_ex(save_dir, True)
+    check_ex(dest_dir, create=True)
+    check_ex(save_dir, create=True)
 
     if load_path is None:
-
         pool_set = data.Single_image(hyper)
-        torch.save(hyper, save_dir / 'train_hypers.pt')
+        pickle.dump(hyper, open((save_dir / 'train_hypers.pt'), 'wb'))
         method = trainer.Trainer(hyper)
         init_e = 0
     else:
@@ -25,7 +28,7 @@ def train_model(dest_dir, save_dir, hyper, load_path=None):
         init_e = len(method.train_obj_loss)
 
     epochs = list(range(1 + init_e, hyper['Epochs'] + 1 + init_e))
-    pbar = tqdm(total=len(epochs), desc='Train progress')
+    pbar = tqdm(total=len(epochs), desc='Train')
 
     factor = hyper['Epochs'] // 10
 
@@ -36,18 +39,17 @@ def train_model(dest_dir, save_dir, hyper, load_path=None):
         pbar.postfix = f'Loss {method.train_loss[-1]:.4f}'
 
         if (ep % factor) == 0:
-            save_image(dest_dir / f'test_{ep}.png', test[:, :4])
+            save_image(test[:, :4], dest_dir / f'test_{ep}.png')
             method.save_method(save_dir, f'test_{ep}')
             method.plot_loss()
 
-if __name__ == "__main__":
 
-    proj_path = get_curr_path()
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("-i", "--im_path", default=proj_path + r"\images\pika.png", required=False)
-    parser.add_argument("-d", "--dest_path", default=proj_path + r"\results", required=False)
-    parser.add_argument("-c", "--check_path", default=proj_path + r"\check_points", required=False)
+    parser.add_argument("-i", "--im_path", default=Path.cwd() / 'images' / 'pika.png', required=False)
+    parser.add_argument("-d", "--dest_path", default=Path.cwd() / 'results', required=False)
+    parser.add_argument("-c", "--check_path", default=Path.cwd() / 'check_points', required=False)
     parser.add_argument("-b", "--batch_size", type=int, default=8, required=False)
     parser.add_argument("-e", "--epochs", type=int, default=60, required=False)
     parser.add_argument("-ch", "--channels", type=int, default=16, required=False)

@@ -4,11 +4,10 @@ from utils import *
 
 
 if __name__ == "__main__":
-    img_path = Path(get_curr_path() + r"\images\pika.png")
-    dest_path = Path(get_curr_path() + r"\results")
-    check_path = Path(get_curr_path() + r"\check_points")
-
-    method_load_path = Path(check_path, )
+    img_path = Path(Path.cwd() / 'images' / 'pika.png')
+    dest_path = Path(Path.cwd() / 'results')
+    check_path = Path(Path.cwd() / 'check_points')
+    method_load_path = Path(check_path)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
