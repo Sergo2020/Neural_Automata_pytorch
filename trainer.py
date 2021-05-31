@@ -11,7 +11,6 @@ import cnn_model as model
 class Trainer(nn.Module):
     def __init__(self, hyperparams):
         super(Trainer, self).__init__()
-        # Hyperparameters
         self.device = hyperparams['Device']
         self.batch_sz = hyperparams['Batch Size']
         self.h_dim = hyperparams['Hidden dim.']
@@ -35,7 +34,7 @@ class Trainer(nn.Module):
         self.scheduler = optim.lr_scheduler.ExponentialLR(self.optimizer, self.lr_gamma)
 
     def train_model(self, pool_set, replace=True, update_pool=True):
-        t_loss = 0
+        t_loss = torch.zeros(1).to(self.device)
 
         for idx, seeds, targets in pool_set.loader:
             self.optimizer.zero_grad()
@@ -67,8 +66,7 @@ class Trainer(nn.Module):
         self.scheduler.step()
         return out.detach().cpu()
 
-    def simulate_cells(self, seed, steps, angle=0.0):
-
+    def simulate_cells(self, seed, steps):
         res_list = []
         with torch.no_grad():
             seed = seed.to(self.device)

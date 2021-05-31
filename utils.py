@@ -1,6 +1,5 @@
 import os
 import sys
-from torchvision.utils import save_image
 from torchvision.transforms import ToPILImage
 import torch
 
@@ -19,16 +18,18 @@ def check_ex(path, create=False):
             print('Program will be terminated!')
             sys.exit()
 
-def tens2pils(tens_list):
+
+def tensor2image(tensor_list):
     tens2pil = ToPILImage(mode='RGB')
 
-    for idx in range(len(tens_list)):
-        tens_list[idx] = tens2pil(torch.clamp(tens_list[idx][:3], 0, 1) )
+    for idx in range(len(tensor_list)):
+        tensor_list[idx] = tens2pil(torch.clamp(tensor_list[idx][:3], 0, 1))
 
-    return tens_list
+    return tensor_list
+
 
 def save_gif(tensor_list, path):
-    pil_list = tens2pils(tensor_list)
+    pil_list = tensor2image(tensor_list)
     pil_list[0].save(path, save_all=True, append_images=pil_list[1:], loop = 0)
 
 
