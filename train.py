@@ -12,19 +12,19 @@ import trainer
 from utils import check_ex
 
 
-def train_model(img_path, dest_dir, save_dir, hyper, load_path=None):
+def train_model(img_path, dest_dir, save_dir, hyper, load_prefix=None):
     check_ex(dest_dir, create=True)
     check_ex(save_dir, create=True)
+    method = trainer.Trainer(hyper)
 
-    if load_path is None:
+    if load_prefix is None:
         pool_set = data.Single_image(img_path, hyper)
         pickle.dump(hyper, open((save_dir / 'train_hypers.pt'), 'wb'))
-        method = trainer.Trainer(hyper)
+
         init_e = 0
     else:
-        check_ex(load_path)
-        method = torch.load(load_path[0])
-        pool_set = torch.load(load_path[1])
+        method.load_method(save_dir, load_prefix)
+        check_ex(load_prefix)
         init_e = len(method.train_obj_loss)
 
     epochs = list(range(1 + init_e, hyper['Epochs'] + 1 + init_e))

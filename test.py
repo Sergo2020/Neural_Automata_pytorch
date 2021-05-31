@@ -13,7 +13,6 @@ def test_model(img_path: Path, method_path: Path, prefix: str, res_dir: Path, st
 
     hyper = pickle.load(open(str(method_path / 'train_hypers.pt'), 'rb'))
 
-
     seeds_pool = data.Single_image(img_path, hyper)
 
     method = trainer.Trainer(hyper)
@@ -38,6 +37,5 @@ if __name__ == "__main__":
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    test_model(Path(args.check_path), 'test_60', Path(args.dest_path),
-               img_path=Path(args.im_path),
+    test_model(Path(args.im_path), Path(args.check_path), 'test_60', Path(args.dest_path),
                steps=args.max_steps)
