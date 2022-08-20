@@ -13,8 +13,8 @@ if __name__ == "__main__":
 
     hyper = {'Batch Size': 8, 'Epochs': 60, 'Device': device,
              'Channels': 16, 'Image size': 40, 'Target padding': 4,
-             'Random Seed': 0, 'Perceive': True, 'Update pool': True,
-             'Pool size': 1024,
+             'Random Seed': 0, 'Laplace': True, 'Update pool': True,
+             'Pool size': 256, 'Model Type': 'CNN',
              'Learning rate': 1e-3, 'Learning gamma': 0.9999, 'Fire rate': 0.5,
              'Hidden dim.': 128, 'Min. Steps': 64, 'Max. Steps': 96}
 

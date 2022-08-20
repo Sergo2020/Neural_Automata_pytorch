@@ -5,7 +5,8 @@ import torch.nn as nn
 import torch.optim as optim
 from matplotlib import pyplot as plt
 
-import cnn_model as model
+import model as model
+import cnn_model as cnn
 
 
 class Trainer(nn.Module):
@@ -15,7 +16,7 @@ class Trainer(nn.Module):
         self.batch_sz = hyperparams['Batch Size']
         self.h_dim = hyperparams['Hidden dim.']
         self.chan_n = hyperparams['Channels']
-        self.precieve = hyperparams['Perceive']
+        self.laplace = hyperparams['Laplace']
         self.fire_rate = hyperparams['Fire rate']
         self.min_steps = hyperparams['Min. Steps']
         self.max_steps = hyperparams['Max. Steps']
@@ -23,8 +24,8 @@ class Trainer(nn.Module):
         self.lr = hyperparams['Learning rate']
         self.lr_gamma = hyperparams['Learning gamma']
 
-        self.CA = model.CAModel(self.chan_n, self.fire_rate, self.precieve, self.device, self.h_dim).to(self.device)
-        self.mse_loss = model.MSE_rgb_loss().to(self.device)
+        self.CA = model.CAModel(hyperparams).to(self.device)
+        self.mse_loss = cnn.MSE_rgb_loss().to(self.device)
 
         # Statistics
         self.train_loss = []
